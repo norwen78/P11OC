@@ -1,0 +1,363 @@
+body{
+    font-family: 'Space Mono', monospace;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    gap: 45%;
+}
+
+.img-header{
+    margin-left: 15%;
+    width: 216px;
+    height: 14px;
+}
+
+.main-menu{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding-left: 0 !important;
+}
+
+.menu-item-9 a{ 
+    margin-left: 0 !important;
+}
+
+.menu-item a{
+    margin-left: 35px;
+    display: flex;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.menu-item a:hover{
+    font-weight: 700;
+}
+
+@media screen and (max-width: 1440px) {
+    .header{
+        gap: 55%;
+    }
+    .img-header{
+        margin-left: 5%;
+    }
+
+}
+
+/* MAIN PAGE */
+
+.banner {
+    width: 100%;
+    height: 966px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.banner div{
+    width: 1440px;
+    background-size: cover;
+    height: 966px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.banner img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centre précisément l'image dans son conteneur parent */
+    object-fit: contain; /*Permet d'ajuter la taille de l'image pour la faire rentrer entiérement dans son conteneur tout en gardant son aspect*/
+}
+
+
+.main-content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-content-div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1440px;
+    margin-bottom: 20px;
+    flex-direction: row;
+}
+
+.entry-content{
+    width: 564px;
+    height: 495px;
+}
+
+
+/* FOOTER*/
+
+footer {
+    background-color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-sizing: border-box;
+    border-top: 1px solid black;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.footer-links a:hover {
+    color: #007bff;
+}
+
+/* MODALE */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding-top: 15px;
+    border: 5px solid black;
+    width: 597px;
+    height: 769px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img_contact{
+    margin: 0;
+    padding: 0 !important;
+}
+
+.form_div{
+    padding-top: 40px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.form_div_2 {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    align-items: center;
+
+}
+
+.form_case{
+    width: 263px;
+    height: 40px;
+    border: 1px solid #B8BBC2;
+    border-radius: 8px;
+}
+
+.form_message{
+    width: 263px;
+    height: 210px;
+    border: 1px solid #B8BBC2;
+    border-radius: 8px;
+}
+
+.wpcf7-submit{
+    border: 1px solid #D8D8D8;
+    background-color: #D8D8D8;
+    width: 263px;
+    height: 50px;
+    border-radius: 2px;
+    gap: 0px !important;
+    margin-left: 72px;
+}
+
+.close {
+    display: none;
+}
+
+/* SINGLE */
+
+.single-post-container {
+    background-color: #f6f6f6;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.post-content {
+    margin-left: 125px;
+    margin-right: 125px;
+    margin-top: 30px;
+    max-width: 1440px;
+}
+
+.first-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.title_ref {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/*titre de la publication */
+.post-title {
+    font-family: 'Space_Mono';
+    font-style: italic; 
+    font-weight: 500;
+    text-transform: uppercase; /* Transforme le texte en lettres majuscules */
+    font-size: 66px;
+}
+
+.line-break-title {
+    line-height: 0.9; 
+}
+  
+/* image miniature de la publication */
+.post-thumbnail img {
+    object-fit: cover; /* permet le controle des dimension et de la position des images dans le conteneur */
+    width: 457px;
+    height: 645px;
+}
+
+.post-thumbnail {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.title_ref {
+    border-bottom: 1px solid black;
+    margin-right: 10px;
+    width: 100%;
+}
+
+.ref {
+    margin-bottom: 37px;
+    margin-bottom: 39px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-transform: uppercase; /* Transforme le texte en lettres majuscules */
+}
+
+/*********** CTA + navigation des photos ***********/
+
+.second-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    border-bottom: 1px solid black;
+}
+
+.CTA {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 96px; 
+    padding: 30px 0 30px 0; 
+}
+
+.contact-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    text-decoration: none;
+    width: 272px;
+    height: 50px;
+    border-radius: 2px;
+    background-color: #D8D8D8;
+    transition: transform 0.3s ease; /* Animation de transition au survol */
+}
+
+.contact-button:hover {
+    background-color: black;
+    font-weight: bold;
+    transform: scale(1.1); /* Effet de mise à l'échelle au survol */
+    color: white;
+}
+
+.contact-button.active {
+    transform: translate(10px, 10px); /* Déplace le bouton de contact de 10px vers la droite et 10px vers le bas au clic */
+}
+
+.related-posts h2{
+    font-family: 'Space Mono', monospace;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.related-photo{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.featured-image{
+    gap: 500px;
+    display: flex;
+    justify-content: center;
+    width: 564px;
+    height: 495px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+.featured-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
