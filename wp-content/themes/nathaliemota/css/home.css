@@ -219,6 +219,7 @@ footer {
     margin-right: 125px;
     margin-top: 30px;
     max-width: 1440px;
+    min-width: 1178px;
 }
 
 .first-section {
@@ -315,6 +316,22 @@ footer {
 
 .contact-button.active {
     transform: translate(10px, 10px); /* Déplace le bouton de contact de 10px vers la droite et 10px vers le bas au clic */
+}
+
+.photo-navigation{
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+
+
+.navigation_arrow{
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    
 }
 
 .related-posts h2{
