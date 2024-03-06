@@ -10,7 +10,9 @@ function register_my_menus() {
     register_nav_menus(
         array(
             'primary-menu' => __( 'Menu principal' ),
-            'footer-menu', __('Footer Menu')
+            'footer-menu' => __('Footer Menu'),
+            'burger-menu' => __('Menu Burger')
+
         )
     );
 }
@@ -61,3 +63,80 @@ function load_scripts() {
 
 // Action WordPress pour charger les scripts
 add_action('wp_enqueue_scripts', 'load_scripts');
+
+
+add_action('wp_footer', 'ajax_filter_posts_script', 100);
+function ajax_filter_posts_script() {
+    ?>
+    <script type="text/javascript">
+        jQuery(function($){
+            $('#category-filter, #format-filter, #order-filter').change(function(){
+                var category = $('#category-filter').val();
+                var format = $('#format-filter').val();
+                var order = $('#order-filter').val();
+                var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
+
+                $.ajax({
+                    type: 'POST',
+                    url: ajaxurl,
+                    data: {
+                        action: 'filter_posts',
+                        category: category,
+                        format: format,
+                        order: order,
+                    },
+                    success: function(response) {
+                        $('.main-content-div').html(response);
+                    }
+                });
+            });
+        });
+    </script>
+    <?php
+}
+
+add_action('wp_ajax_filter_posts', 'filter_posts');
+add_action('wp_ajax_nopriv_filter_posts', 'filter_posts');
+
+function filter_posts() {
+    $category = $_POST['category'];
+    $format = $_POST['format'];
+    $order = $_POST['order'];
+
+    $args = array(
+        'post_type'      => 'photo',
+        'posts_per_page' => 8,
+        'order'          => $order,
+    );
+
+    if (!empty($category) && is_numeric($category)) {
+        $args['tax_query'][] = array(
+            'taxonomy' => 'categorie',
+            'field'    => 'id',
+            'terms'    => $category,
+        );
+    }
+
+    if (!empty($format) && is_numeric($format)) {
+        $args['tax_query'][] = array(
+            'taxonomy' => 'format',
+            'field'    => 'id',
+            'terms'    => $format,
+        );
+    }
+
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) :
+        while ($query->have_posts()) : $query->the_post();
+            get_template_part("template-part/block_photo");
+        endwhile;
+    endif;
+
+    wp_die();
+}
+
+
+
+
+

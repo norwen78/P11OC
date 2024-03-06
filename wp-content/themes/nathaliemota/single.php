@@ -13,6 +13,13 @@ get_header(); // Ajoutez le code d'en-tête standard de WordPress
 
         <div class="first-section">
 
+        <!-- Affiche l'image à la une (thumbnail) de la photo -->
+        <?php if (has_post_thumbnail()) : ?>
+            <div class="post-thumbnail-mobile">
+                <?php the_post_thumbnail(); ?>
+            </div>
+        <?php endif; ?>
+
         <div class="title_ref">
 
             <div class="title">
@@ -102,7 +109,7 @@ get_header(); // Ajoutez le code d'en-tête standard de WordPress
             $prev_post = get_previous_post();
             $next_post = get_next_post();
             ?>
-            
+
                 <div class="navigation_thumbnail">
                 <?php echo get_the_post_thumbnail($next_post->ID, 'thumbnail', array('class' => 'mini-thumbnail')); ?>
                 </div>
@@ -110,14 +117,14 @@ get_header(); // Ajoutez le code d'en-tête standard de WordPress
             <div class="navigation_arrow">
             <?php if (!empty($prev_post)) : ?>
                 <!-- Lien pour la photo précédente -->
-                <a href="<?php echo esc_url(get_permalink($prev_post->ID)); ?>" class="arrow-thumbnail custom-prev-link">
+                <a href="<?php echo esc_url(get_permalink($prev_post->ID)); ?>" >
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/arrow-left.png" class="arrow" data-direction="previous" alt="Previous">
                 </a>
             <?php endif; ?>
 
             <?php if (!empty($next_post)) : ?>
                 <!-- Lien pour la photo suivante -->
-                <a href="<?php echo esc_url(get_permalink($next_post->ID)); ?>" class="arrow-thumbnail custom-next-link">
+                <a href="<?php echo esc_url(get_permalink($next_post->ID)); ?>" >
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/arrow-right.png" class="arrow" data-direction="next" alt="Next"> 
                 </a>
             <?php endif; ?>

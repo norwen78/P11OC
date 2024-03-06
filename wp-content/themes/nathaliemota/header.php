@@ -24,4 +24,33 @@
     ?>
 </nav>
 </div>
+
+
+<div id="burger" class="burger-div">
+    <div class="top-div-burger">
+    <img class="img-burger" src="<?php echo get_template_directory_uri() . '/assets/logo.png'; ?> " alt="logo Nathalie Mota">
+        <a id="closeBtn" class="close-burger" href="#">
+            <img class="img-close" src="<?php echo get_template_directory_uri() . '/assets/icon-close-menu.png'; ?> " alt="Croix de fermeture de menu">  
+        </a>
+    </div>
+    <nav>
+    <?php
+    wp_nav_menu( array(
+        'theme_location' => 'burger-menu', // Changez en fonction de votre emplacement de menu
+        'menu_class'     => 'burger',
+        'container'      => false,
+    ) );
+    ?>
+    </nav>
+</div>
+
+<a id="openBtn" class="open-burger" href="#">
+    <span class="burger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </span>
+</a>
+
+
 </header>
