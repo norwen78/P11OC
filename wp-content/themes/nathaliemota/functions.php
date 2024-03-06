@@ -1,10 +1,13 @@
 <?php
-
+add_action('wp_enqueue_scripts', 'load_scripts');
+add_action('wp_enqueue_scripts','add_select2');
 function enqueue_custom_styles() {
     wp_enqueue_style('home', get_stylesheet_directory_uri() . '/css/home.css');   
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_custom_styles');
+
+
 
 function register_my_menus() {
     register_nav_menus(
@@ -47,6 +50,8 @@ add_action('wp_ajax_nopriv_load_more_articles', 'load_more_articles');
 
 
 
+
+
 // Fonction pour charger les scripts JavaScript
 function load_scripts() {
     // Enregistrez et chargez le script JavaScript
@@ -62,7 +67,7 @@ function load_scripts() {
 }
 
 // Action WordPress pour charger les scripts
-add_action('wp_enqueue_scripts', 'load_scripts');
+
 
 
 add_action('wp_footer', 'ajax_filter_posts_script', 100);
@@ -137,6 +142,11 @@ function filter_posts() {
 }
 
 
+
+function add_select2() {
+    wp_enqueue_script('select2','https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js');
+    wp_enqueue_style('select2','https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css');
+}
 
 
 

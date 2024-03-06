@@ -152,3 +152,8 @@ function burger(){
 
 burger();
 
+jQuery(document).ready(function() {
+    jQuery('#order-filter').select2();
+    jQuery('#category-filter').select2();
+    jQuery('#format-filter').select2();
+});

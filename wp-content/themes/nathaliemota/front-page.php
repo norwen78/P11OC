@@ -39,13 +39,17 @@
 
             <section class="main-content">
             <form method="POST" action="" id="filter-form">
+                <div class="double-filter">
                 <?php wp_dropdown_categories(array('taxonomy' => 'categorie', 'name' => 'category', 'show_option_all' => 'Toutes les catégories',  'id' => 'category-filter')); ?>
                 <?php wp_dropdown_categories(array('taxonomy' => 'format', 'name' => 'format', 'show_option_all' => 'Tout les formats', 'id' => 'format-filter')); ?>
+                </div>
+                <div class="single-filter">
                 <select name="order" id="order-filter">
                     <option value="desc">Ordre</option>
                     <option value="desc">A partir des plus récentes</option>
                     <option value="asc">A partir des plus anciennes</option>
                 </select>
+                </div>
             </form>
 
             <div class="main-content-div">
