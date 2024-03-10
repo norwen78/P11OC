@@ -8,6 +8,7 @@
                                     <img
                                         data-id="<?php the_ID(); ?>"
                                         class="fullscreen lightbox-trigger" 
+                                        id="lightbox-open"
                                         src="<?php echo get_stylesheet_directory_uri() . '/assets/fullscreen.png'; ?>" 
                                         alt=""
                                     >

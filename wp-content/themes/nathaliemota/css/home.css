@@ -646,9 +646,10 @@ footer {
 }
 
 .double-filter{
-    padding-right: 340px;
-
-    
+    padding-right: 330px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
 @media screen and (max-width: 1024px) {

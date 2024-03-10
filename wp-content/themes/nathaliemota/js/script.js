@@ -84,21 +84,12 @@ jQuery(document).ready(function ($) {
     }
     
     $('#load-more-button').on('click', function () {
-        console.log('tata')
         loadMoreArticles();      
     });
 });
 
 function lightboxEvent(){
-    console.log("test")
-    
-    // Sélectionnez les éléments nécessaires
-    
-    
     var closeBtn = document.querySelectorAll('.close-light');
-    
-    
-
     // Sélectionnez tous les éléments qui déclencheront la lightbox
     var triggers = document.querySelectorAll('.lightbox-trigger');
 
@@ -108,7 +99,6 @@ function lightboxEvent(){
             event.preventDefault();
             var idNumber = trigger.getAttribute('data-id');
             var lightbox = document.getElementById('custom-lightbox-'+ idNumber);
-            console.log(idNumber);
             var ligthboxClose = document.querySelectorAll('.lightbox');
             for(var element of ligthboxClose){
                 element.style.display = 'none';
@@ -127,6 +117,12 @@ function lightboxEvent(){
     }
   
 };
+
+jQuery(document).ready(function() {
+    jQuery('#order-filter').select2();
+    jQuery('#category-filter').select2();
+    jQuery('#format-filter').select2();
+});
 
 document.addEventListener("DOMContentLoaded", function () {
 lightboxEvent();
@@ -152,8 +148,12 @@ function burger(){
 
 burger();
 
-jQuery(document).ready(function() {
-    jQuery('#order-filter').select2();
-    jQuery('#category-filter').select2();
-    jQuery('#format-filter').select2();
+document.addEventListener('DOMContentLoaded', function() {
+    // Sélectionner un élément parent statique existant dans le DOM
+    var parentElement = document.body; // Vous pouvez utiliser un autre élément si nécessaire
+
+    // Ajouter un écouteur d'événements au parent
+    parentElement.addEventListener('click', function(event) {
+        lightboxEvent();
+    });
 });
